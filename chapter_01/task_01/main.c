@@ -13,4 +13,6 @@ int main() {
     scanf("%d", &in);
 
     printf("Получилось %0.2f\n", (float) in * 2.54);
+
+    return 0;
 }
