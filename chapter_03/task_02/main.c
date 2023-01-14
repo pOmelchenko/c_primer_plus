@@ -10,11 +10,11 @@
  */
 int main(void)
 {
-    char symbol;
+    int symbol;
     printf("Введите код символа: ___\b\b\b");
     scanf("%d", &symbol);
 
-    printf("Результат: %c", symbol);
+    printf("Результат: %c\r\n", (char) symbol);
 
     return 0;
 }
