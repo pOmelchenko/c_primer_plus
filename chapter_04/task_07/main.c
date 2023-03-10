@@ -10,7 +10,7 @@
  * Включите также в программу заголовочный файл <code>float.h</code> и выведите значение <code>FLT_DIG</code> и
  * <code>DBL_DIG</code>. Согласуются ли выведенные значения со значением 1.0/3.0?
  *
- * @return
+ * @return int
  */
 int main(void)
 {
