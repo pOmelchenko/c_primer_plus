@@ -12,5 +12,16 @@
  * @return int
  */
 int main(void) {
+    int count, sum, limit;
+
+    printf("Введите лимит: ");
+    scanf("%d", &limit);
+
+    count = 0;
+    sum = 0;
+    while (count++ < limit)
+        sum = sum + count;
+    printf("sum = %d\n", sum);
+
     return 0;
 }
