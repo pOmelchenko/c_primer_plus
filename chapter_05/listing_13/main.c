@@ -2,6 +2,7 @@
 
 /**
  * @file addemup.c
+ *
  * @brief пять видов операторов
  *
  * @return int
