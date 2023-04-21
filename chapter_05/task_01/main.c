@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+/**
+ * @brief Количество минут в часе
+ */
 #define MIN_PER_HOUR 60
 
 /**

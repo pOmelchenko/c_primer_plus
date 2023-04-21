@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+/**
+ * @brief Выведет в поток "Улыбайся!"
+ */
 void smile(void);
 
 /**
