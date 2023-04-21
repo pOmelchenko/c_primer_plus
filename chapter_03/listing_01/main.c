@@ -1,5 +1,12 @@
 #include <stdio.h>
 
+/**
+ * @file platinum.c
+ *
+ * @brief Ваш вес в платиновом эквиваленте
+ *
+ * @return int
+ */
 int main(void)
 {
     float weight;

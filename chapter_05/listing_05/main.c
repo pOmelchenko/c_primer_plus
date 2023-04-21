@@ -6,6 +6,8 @@
 #define SQUARES 64
 
 /**
+ * @file wheat.c
+ *
  * @brief Экспоненциальный рост
  *
  * @return int

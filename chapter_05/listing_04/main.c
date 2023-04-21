@@ -1,6 +1,8 @@
 #include <stdio.h>
 
 /**
+ * @file squares.c
+ *
  * @brief Генерирует таблицу квадратов 20 значений
  *
  * @return int

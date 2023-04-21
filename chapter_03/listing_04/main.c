@@ -1,6 +1,8 @@
 #include <stdio.h>
 
 /**
+ * @file print2.c
+ *
  * @brief Дополнительные свойства функции printf()
  *
  * @return int
