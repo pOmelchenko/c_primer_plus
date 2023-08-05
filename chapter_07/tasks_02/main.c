@@ -14,7 +14,18 @@
  */
 int main(void)
 {
-    /** @todo write your code here */
+    char symbol;
+    int counter = 0;
+
+    while ((symbol = getchar()) != '#') {
+        counter++;
+
+        if (symbol == '\n') {
+            continue;
+        }
+
+        printf("%c-%d%c", symbol, symbol, (counter % 8) ? ' ' : '\n');
+    }
 
     return 0;
 }
