@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 
 /**
  * @brief Упражнение по программированию 7.3
@@ -11,7 +12,21 @@
  */
 int main(void)
 {
-    /** @todo write your code here */
+    char number;
+    int counter = 0, sum = 0, even = 0, odd = 0;
+
+    while ((number = getchar()) != '0') {
+        counter++;
+        sum += digittoint(number);
+
+        if (number % 2 == 0) {
+            even++;
+        } else {
+            odd++;
+        }
+    }
+
+    printf("Введено %d чисел, среднее число %d, четных %d, нечетных %d", counter, sum / counter, even, odd);
 
     return 0;
 }
