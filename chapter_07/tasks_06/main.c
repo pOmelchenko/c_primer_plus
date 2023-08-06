@@ -13,7 +13,18 @@
  */
 int main(void)
 {
-    /** @todo write your code here */
+    char last, prew = '\0';
+    int ei_count = 0;
+
+    while ((last = getchar()) != '#') {
+        if ('e' == prew && 'i' == last) {
+            ei_count++;
+        }
+
+        prew = last;
+    }
+
+    printf("'ei' встретилось %d раз", ei_count);
 
     return 0;
 }
