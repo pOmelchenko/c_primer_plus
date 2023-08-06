@@ -11,7 +11,19 @@
  */
 int main(void)
 {
-    /** @todo write your code here */
+    char input;
+    int counter = 0;
+
+    while ((input = getchar()) != '#') {
+        if (input == '.' || input == '!') {
+            printf("%s", (input == '!') ? "!!" : "!");
+            counter++;
+        } else {
+            printf("%c", input);
+        }
+    }
+
+    printf("всего замен: %d", counter);
 
     return 0;
 }
