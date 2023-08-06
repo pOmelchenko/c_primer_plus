@@ -9,7 +9,22 @@
  */
 int main(void)
 {
-    /** @todo write your code here */
+    char input;
+    int counter = 0;
+
+    while ((input = getchar()) != '#') {
+        switch (input) {
+            case '.':
+            case '!':
+                printf("%s", (input == '!') ? "!!" : "!");
+                counter++;
+                break;
+            default:
+                printf("%c", input);
+        }
+    }
+
+    printf("всего замен: %d", counter);
 
     return 0;
 }
