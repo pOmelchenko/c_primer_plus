@@ -11,30 +11,33 @@
  */
 int main(void)
 {
-    unsigned long num;
-    unsigned long div;
+    unsigned long num, div, prime, count = 0;
 
     bool is_prime;
 
     printf("Введите число: ");
 
     while (scanf("%lu", &num) == 1) {
-        for (div = 2, is_prime = true; (div * div) <= num; div++) {
-            if (num % div == 0) {
-                if ((div * div) != num) {
-                    printf("%lu делится на %lu и %lu.\n", num, div, num / div);
-                } else {
-                    printf("%lu делится на %lu.\n", num, div);
+        for (prime = 2; prime <= num; prime++) {
+            is_prime = true;
+            for (div = 2; (div * div) <= prime; div++)
+            {
+                if (prime % div == 0) {
+                    is_prime = false;
                 }
-                is_prime = false;
+            }
+
+            if (is_prime) {
+                count++;
+                printf("%5lu", prime);
+
+                if (count % 10 == 0) {
+                    printf("\n");
+                }
             }
         }
 
-        if (is_prime) {
-            printf("%lu является простым числом.\n", num);
-        }
-
-        printf("Введите следующее число для анализа, или введите q для завершения.\n");
+        printf("\nВведите следующее число для анализа, или введите q для завершения.\n");
     }
 
     printf("До свидания\n");
