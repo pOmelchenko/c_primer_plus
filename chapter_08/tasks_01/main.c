@@ -9,7 +9,13 @@
  */
 int main(void)
 {
-    /** @todo write your code here */
+    int count = 0;
+
+    while (getchar() != EOF) {
+        count++;
+    }
+
+    printf("В файле было %d символов.\n", count);
 
     return 0;
 }
