@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 
 /**
  * @brief Упражнение по программированию 8.3
@@ -13,7 +14,22 @@
  */
 int main(void)
 {
-    /** @todo write your code here */
+    char ch;
+    int lower = 0;
+    int upper = 0;
+    int etc = 0;
+
+    while ((ch = getchar()) != EOF) {
+        if (isupper(ch)) {
+            upper++;
+        } else if (islower(ch)) {
+            lower++;
+        } else {
+            etc++;
+        }
+    }
+
+    printf("Верхний регистр: %d\nНижний регистр: %d\nОстальные: %d\n", upper, lower, etc);
 
     return 0;
 }
