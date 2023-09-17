@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdbool.h>
+#include <ctype.h>
 
 /**
  * @brief Упражнение по программированию 8.4
@@ -12,7 +14,41 @@
  */
 int main(void)
 {
-    /** @todo write your code here */
+    char ch;
+    int words = 0;
+    int charsInWords = 0;
+    bool word = false;
+    bool lastChIsAlpha = false;
+
+    while ((ch = getchar()) != EOF) {
+        if (word) {
+            if (isalpha(ch)) {
+                word = true;
+                charsInWords++;
+                lastChIsAlpha = true;
+            } else {
+                word = false;
+                words++;
+            }
+        } else {
+            if (isalpha(ch)) {
+                word = true;
+                charsInWords++;
+                lastChIsAlpha = true;
+            }
+        }
+    }
+
+    if (ch == EOF && word) {
+        words++;
+    }
+
+    printf(
+        "Слов: %d\nВсего символов: %d\nСреднне количество символов в словах: %d\n",
+        words,
+        charsInWords,
+        charsInWords / words
+    );
 
     return 0;
 }
