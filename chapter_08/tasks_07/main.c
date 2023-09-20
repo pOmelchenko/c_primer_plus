@@ -3,6 +3,10 @@
 #define NORMAL_WORK_TIME 40
 #define OVERTIME_COEFFICIENT 1.5
 
+char get_choice(void);
+char get_first(void);
+int get_int(void);
+
 /**
  * @brief Упражнение по программированию 8.7
  *
@@ -13,39 +17,30 @@
  */
 int main(void)
 {
-    int hours, menu;
+    int hours, choice;
     float normal_work_time, earned, tax;
 
-    while (1) {
-        printf("***********************************************************************\n");
-        printf("1) $8.75/ч                     2) $9.33/ч\n");
-        printf("3) $10.00/ч                    4) $11.20/ч\n");
-        printf("5) Выход\n");
-        printf("***********************************************************************\n");
-        scanf("%d", &menu);
-
-        switch (menu) {
-            case 1:
+    while ((choice = get_choice()) != 'q') {
+        switch (choice) {
+            case 'a':
                 normal_work_time = 8.75;
                 break;
-            case 2:
-                normal_work_time = 8.75;
+            case 'b':
+                normal_work_time = 9.33;
                 break;
-            case 3:
-                normal_work_time = 8.75;
+            case 'c':
+                normal_work_time = 10.00;
                 break;
-            case 4:
-                normal_work_time = 8.75;
+            case 'd':
+                normal_work_time = 11.20;
                 break;
-            case 5:
-                return 0;
             default:
                 printf("Попробуйте еще раз\n");
                 continue;
         }
 
         printf("Введите количество отработанных часов: ");
-        scanf("%d", &hours);
+        hours = get_int();
 
         if (hours <= 40) {
             earned = hours * normal_work_time;
@@ -74,5 +69,57 @@ int main(void)
         printf("Начислено: %.2f\nНалог %.2f\nЧистый доход: %.2f\n", earned, tax, earned - tax);
     }
 
+    printf("Программа завершена.\n");
+
     return 0;
+}
+
+char get_choice(void)
+{
+    int ch;
+
+    printf("***********************************************************************\n");
+    printf("a) $8.75/ч                     b) $9.33/ч\n");
+    printf("c) $10.00/ч                    d) $11.20/ч\n");
+    printf("q) Выход\n");
+    printf("***********************************************************************\n");
+
+    ch = get_first();
+    while (ch != 'a' && ch != 'b' && ch != 'c' && ch != 'd' && ch != 'q') {
+        printf("Выберите a, b, c, d или q.\n");
+        ch = get_first();
+    }
+
+    return ch;
+}
+
+char get_first(void)
+{
+    int ch;
+
+    while ((ch = getchar()) == ' ')
+        continue;
+    while (getchar() != '\n')
+        continue;
+
+    return ch;
+}
+
+int get_int(void)
+{
+    int input;
+    char ch;
+
+    while (scanf("%d", &input) != 1)
+    {
+        while ((ch = getchar()) != '\n')
+            putchar(ch);  // отбросить неправильный ввод
+        printf(" не является целочисленным.\n");
+        printf("Введите целое число, такое как 25, -178 или 3:\n");
+    }
+
+    while (getchar() != '\n')
+        continue;
+
+    return input;
 }
