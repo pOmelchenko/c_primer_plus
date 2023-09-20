@@ -42,13 +42,13 @@ int main(void)
                 normal_work_time = 8.75;
                 break;
             case 2:
-                normal_work_time = 8.75;
+                normal_work_time = 9.33;
                 break;
             case 3:
-                normal_work_time = 8.75;
+                normal_work_time = 10.00;
                 break;
             case 4:
-                normal_work_time = 8.75;
+                normal_work_time = 11.20;
                 break;
             case 5:
                 return 0;
