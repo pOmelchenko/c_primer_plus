@@ -31,8 +31,7 @@ int main(void)
     show_n_char(SPACE, spaces);
     printf("%s\n", ADDRESS);
 
-    spaces = (WIDTH - strlen(PLACE)) / 2;
-    show_n_char(SPACE, spaces);
+    show_n_char(SPACE, (WIDTH - strlen(PLACE)) / 2);
     printf("%s\n", PLACE);
 
     show_n_char('*', WIDTH);
