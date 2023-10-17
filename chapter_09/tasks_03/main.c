@@ -1,6 +1,15 @@
 #include <stdio.h>
 
 /**
+ * @brief печать символов в матрице
+ *
+ * @param ch символ для вывода
+ * @param cols количество символов в строке
+ * @param rows количество строк
+ */
+void print_char(char ch, int cols, int rows);
+
+/**
  * @brief Упражнение по программированию 9.3
  *
  * @details Напишите функцию, которая принимает три аргумента: символ и два целых числа. Символ предназначен для вывода.
@@ -11,7 +20,19 @@
  */
 int main(void)
 {
-    /** @todo write your code here */
+    print_char('a', 10, 5);
 
     return 0;
+}
+
+void print_char(char ch, int cols, int rows)
+{
+    int c, r;
+
+    for (r = 0; r < rows; r++) {
+        for (c = 0; c < cols; c++) {
+            putchar(ch);
+        }
+        putchar('\n');
+    }
 }
