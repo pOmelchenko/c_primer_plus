@@ -1,6 +1,15 @@
 #include <stdio.h>
 
 /**
+ * @brief Вычисление гармонического значения
+ *
+ * @param a первое число
+ * @param b второе число
+ * @return
+ */
+double harmonic_awg(double a, double b);
+
+/**
  * @brief Упражнение по программированию 9.4
  *
  * @details Среднее гармоническое значение двух чисел получается путем инвертирования этих чисел, вычисления среднего
@@ -11,7 +20,12 @@
  */
 int main(void)
 {
-    /** @todo write your code here */
+    printf("Result: %f", harmonic_awg(10, 5));
 
     return 0;
+}
+
+double harmonic_awg(double a, double b)
+{
+    return 2.0 / (1 / a + 1 / b);
 }
