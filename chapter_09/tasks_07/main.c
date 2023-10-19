@@ -24,11 +24,7 @@ int main(void)
     char ch;
 
     while ((ch = getchar()) != EOF) {
-        if (isalpha(ch)) {
-            printf("%c - %d\n", ch, get_char_number(ch));
-        } else {
-            printf("%c - %d\n", ch, -1);
-        }
+        printf("%c - %d\n", ch, get_char_number(ch));
         getchar();
     }
 
@@ -37,5 +33,8 @@ int main(void)
 
 int get_char_number(char ch)
 {
-    return (int) tolower(ch) - 96;
+    if (isalpha(ch))
+        return (int) tolower(ch) - 'a' + 1;
+    else
+        return -1;
 }
