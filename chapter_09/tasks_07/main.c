@@ -1,4 +1,12 @@
 #include <stdio.h>
+#include <ctype.h>
+
+/**
+ * @brief Возвращает номер буквы в алфавите
+ * @param ch Символ из stdout
+ * @return
+ */
+int get_char_number(char ch);
 
 /**
  * @brief Упражнение по программированию 9.7
@@ -13,7 +21,21 @@
  */
 int main(void)
 {
-    /** @todo write your code here */
+    char ch;
+
+    while ((ch = getchar()) != EOF) {
+        if (isalpha(ch)) {
+            printf("%c - %d\n", ch, get_char_number(ch));
+        } else {
+            printf("%c - %d\n", ch, -1);
+        }
+        getchar();
+    }
 
     return 0;
+}
+
+int get_char_number(char ch)
+{
+    return (int) tolower(ch) - 96;
 }
