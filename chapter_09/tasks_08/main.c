@@ -25,9 +25,8 @@ int main(void)
     double x, xpow;
     int exp;
 
-    printf("Введите число и положительную целую степень,");
-    printf(" в которую\nчисло будет возведено. Для завершения программы");
-    printf(" введите q\n");
+    printf("Введите число и целую степень, в которую число будет возведено.\n");
+    printf("Для завершения программы введите q\n");
 
     while (scanf("%lf%d", &x, &exp) == 2)
     {
@@ -45,8 +44,30 @@ double power(double n, int p)
     double pow = 1;
     int i;
 
-    for (i = 1; i <= p; i++)
-        pow *= n;
+    if (p != 0 && n == 0) {
+        return 0;
+    }
+
+    if (p == 0 && n !=0 ) {
+        return 1;
+    }
+
+    if (n == 0 && p == 0) {
+        printf("!! Результат не определен\n");
+        return 1;
+    }
+
+    if (p > 0) {
+        for (i = 1; i <= p; i++)
+            pow *= n;
+    }
+
+    if (p < 0) {
+        p *= -1;
+        for (i = 1; i <= p; i++)
+            pow *= n;
+        pow = 1 / pow;
+    }
 
     return pow;
 }
