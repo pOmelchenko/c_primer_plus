@@ -1,13 +1,13 @@
 #include <stdio.h>
 
-void to_binary(unsigned long n);
+void to_binary(unsigned long number, int base);
 
 /**
  * @brief Упражнение по программированию 9.10
  *
  * @details Обобщите функцию <code>to_binary()</code> из листинга 9.8 до функции <code>to_base_n()</code>, которая
  * принимает второй аргумент в диапазоне от 2 о 10. Она должна выводить число, переданное в первом аргументе, в системе
- * счисления с основанием, которое указанно во втором аргументе. Например, вызов <code>to_base_n(128,8)</code> должен
+ * счисления с основанием, которое указанно во втором аргументе. Например, вызов <code>to_base_n(129,8)</code> должен
  * отобразить <code>201</code>, т.е. восьмеричный эквивалент числа <code>129</code>. Протестируйте готовую функцию в
  * какой-нибудь программе.
  *
@@ -16,12 +16,13 @@ void to_binary(unsigned long n);
 int main(void)
 {
     unsigned long int number;
+    int base;
 
     printf("Введите целое число (q для завершения):\n");
-    while (scanf("%lu", &number) == 1)
+    while (scanf("%lu%d", &number, &base) == 2)
     {
         printf("Двоичный эквивалент: ");
-        to_binary(number);
+        to_binary(number, base);
         putchar('\n');
         printf("Введите целое число (q для завершения):\n");
     }
@@ -30,16 +31,19 @@ int main(void)
     return 0;
 }
 
-void to_binary(unsigned long n)
+void to_binary(unsigned long number, int base)
 {
-    int r;
+    if (base < 2 || base > 10) {
+        printf("!!! Задан неверный диапазон основания системы счисления\n");
+        return;
+    }
 
-    r = n % 2;
+    int result;
 
-    if (n >= 2)
-        to_binary(n / 2);
+    result = number % base;
 
-    putchar(r == 0 ? '0' : '1');
+    if (number >= base)
+        to_binary(number / base, base);
 
-    return;
+    printf("%d", result);
 }
